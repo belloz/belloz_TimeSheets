@@ -1,0 +1,18 @@
+{% extends 'timesheet_app/base.html' %}
+
+{% block body %}
+
+<div class='row'>
+    <div class='span12'>
+
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include 'timesheet_app/form.html' %}
+    </form>
+
+
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,497 @@
+						<div class="row mt-4">
+
+							<!-- time_sheet_week_from: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time Sheet Week From</label>
+                                    {{ form.time_sheet_week_from }}
+
+							</div>
+
+							<!-- time_sheet_week_to: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time Sheet Week To</label>
+								    {{ form.time_sheet_week_to }}
+							</div>
+
+                            <!-- EMPTY: -->
+							<div class="col-sm-3 pb-3">
+                                <label>Total Week Hours</label>
+                                {{ form.total_week_hours }}
+							</div>
+
+                            <!-- HR -->
+                            <div class='col-sm-12 pb-3'>
+                                <hr>
+                            </div>
+
+            <!-- MONDAY: -->
+                            <!-- date_mon: -->
+							<div class="col-sm-3 pb-3">
+                                <label><b><u>Monday</u></b></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
+                                    {{ form.date_mon }}
+                                </div>
+							</div>
+
+                            <!-- Time In: -->
+
+
+							<div class="col-sm-3 pb-3">
+								<label>Time In</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_in_mon }}
+                                </div>
+							</div>
+
+                            <!-- Break / Lunch?: -->
+							<div class="col-sm-2 pb-3">
+								<label>Lunch?</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="fas fa-utensils"></i></div>
+							            {{ form.lunch_mon }}
+                                </div>
+                            </div>
+
+							<!-- Time out: -->
+							<div class="col-sm-3 pb-3">
+								<label>time_out_mon</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_out_mon }}
+                                </div>
+							</div>
+
+                            <!-- Hours in a day: -->
+                            <div class="col-sm-1 pb-3">
+								<label>Hours:</label>
+                                {{ form.C }}
+							</div>
+
+							<!-- vehicles: -->
+							<div class="col-sm-3 pb-3">
+								<label>Vehicle</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fas fa-truck-moving"></i></div>
+                                    {{ form.vehicles_mon }}
+                                </div>
+							</div>
+
+							<!-- Address: -->
+							<div class="col-sm-3 pb-3">
+								<label>Job Address</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+								    {{ form.job_address_mon }}
+                                </div>
+							</div>
+
+							<!-- job Desc: -->
+							<div class="col-sm-6 pb-3">
+								<label>Job Description</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+                                    {{ form.job_description_mon }}
+                                </div>
+							</div>
+
+                            <!-- HR -->
+                            <div class='col-sm-12 pb-3'>
+                                <hr>
+                            </div>
+
+        <!-- TUESDAY : -->
+
+                            <!-- date_tue: -->
+							<div class="col-sm-3 pb-3">
+                                <label><b><u>Tuesday</u></b></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
+                                    {{ form.date_tue }}
+                                </div>
+							</div>
+
+                            <!-- Time In: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time In</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_in_tue }}
+                                </div>
+							</div>
+
+                            <!-- Break / Lunch?: -->
+							<div class="col-sm-2 pb-3">
+								<label>Lunch?</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="fas fa-utensils"></i></div>
+							            {{ form.lunch_tue }}
+                                </div>
+                            </div>
+
+							<!-- Time out: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time Out</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_out_tue }}
+                                </div>
+							</div>
+
+                            <!-- Hours in a day: -->
+                            <div class="col-sm-1 pb-3">
+								<label>Hours:</label>
+                                {{ form.hours_tue }}
+							</div>
+
+							<!-- vehicles: -->
+							<div class="col-sm-3 pb-3">
+								<label>Vehicle</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fas fa-truck-moving"></i></div>
+                                    {{ form.vehicles_tue }}
+                                </div>
+							</div>
+
+							<!-- Address: -->
+							<div class="col-sm-3 pb-3">
+								<label>Job Address</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+								    {{ form.job_address_tue }}
+                                </div>
+							</div>
+
+							<!-- job Desc: -->
+							<div class="col-sm-6 pb-3">
+								<label>Job Description</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+                                    {{ form.job_description_tue }}
+                                </div>
+							</div>
+
+                            <!-- HR -->
+                            <div class='col-sm-12 pb-3'>
+                                <hr>
+                            </div>
+
+
+        <!-- WEDNESDAY : -->
+
+                            <!-- date_wed: -->
+							<div class="col-sm-3 pb-3">
+                                <label><b><u>Wednesday</u></b></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
+                                    {{ form.date_wed }}
+                                </div>
+							</div>
+
+                            <!-- Time In: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time In</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_in_wed }}
+                                </div>
+							</div>
+
+                            <!-- Break / Lunch?: -->
+							<div class="col-sm-2 pb-3">
+								<label>Lunch?</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="fas fa-utensils"></i></div>
+							            {{ form.lunch_wed }}
+                                </div>
+                            </div>
+
+							<!-- Time out: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time Out</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_out_wed }}
+                                </div>
+							</div>
+
+                            <!-- Hours in a day: -->
+                            <div class="col-sm-1 pb-3">
+								<label>Hours:</label>
+                                {{ form.hours_wed }}
+							</div>
+
+							<!-- vehicles: -->
+							<div class="col-sm-3 pb-3">
+								<label>Vehicle</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fas fa-truck-moving"></i></div>
+                                    {{ form.vehicles_wed }}
+                                </div>
+							</div>
+
+							<!-- Address: -->
+							<div class="col-sm-3 pb-3">
+								<label>Job Address</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+								    {{ form.job_address_wed }}
+                                </div>
+							</div>
+
+							<!-- job Desc: -->
+							<div class="col-sm-6 pb-3">
+								<label>Job Description</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+                                    {{ form.job_description_wed }}
+                                </div>
+							</div>
+
+                            <!-- HR -->
+                            <div class='col-sm-12 pb-3'>
+                                <hr>
+                            </div>
+
+        <!-- THU : -->
+
+                            <!-- date_thu: -->
+							<div class="col-sm-3 pb-3">
+                                <label><b><u>Tuesday</u></b></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
+                                    {{ form.date_thu }}
+                                </div>
+							</div>
+
+                            <!-- Time In: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time In</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_in_thu }}
+                                </div>
+							</div>
+
+                            <!-- Break / Lunch?: -->
+							<div class="col-sm-2 pb-3">
+								<label>Lunch?</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="fas fa-utensils"></i></div>
+							            {{ form.lunch_thu }}
+                                </div>
+                            </div>
+
+							<!-- Time out: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time Out</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_out_thu }}
+                                </div>
+							</div>
+
+                            <!-- Hours in a day: -->
+                            <div class="col-sm-1 pb-3">
+								<label>Hours:</label>
+                                {{ form.hours_thu }}
+							</div>
+
+							<!-- vehicles: -->
+							<div class="col-sm-3 pb-3">
+								<label>Vehicle</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fas fa-truck-moving"></i></div>
+                                    {{ form.vehicles_thu }}
+                                </div>
+							</div>
+
+							<!-- Address: -->
+							<div class="col-sm-3 pb-3">
+								<label>Job Address</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+								    {{ form.job_address_thu }}
+                                </div>
+							</div>
+
+							<!-- job Desc: -->
+							<div class="col-sm-6 pb-3">
+								<label>Job Description</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+                                    {{ form.job_description_thu }}
+                                </div>
+							</div>
+
+                            <!-- HR -->
+                            <div class='col-sm-12 pb-3'>
+                                <hr>
+                            </div>
+
+
+
+        <!-- FRI : -->
+
+                            <!-- date_fri: -->
+							<div class="col-sm-3 pb-3">
+                                <label><b><u>Friday</u></b></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
+                                    {{ form.date_fri }}
+                                </div>
+							</div>
+
+                            <!-- Time In: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time In</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_in_fri }}
+                                </div>
+							</div>
+
+                            <!-- Break / Lunch?: -->
+							<div class="col-sm-2 pb-3">
+								<label>Lunch?</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="fas fa-utensils"></i></div>
+							            {{ form.lunch_fri }}
+                                </div>
+                            </div>
+
+							<!-- Time out: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time Out</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_out_fri }}
+                                </div>
+							</div>
+
+                            <!-- Hours in a day: -->
+                            <div class="col-sm-1 pb-3">
+								<label>Hours:</label>
+                                {{ form.hours_fri }}
+							</div>
+
+							<!-- vehicles: -->
+							<div class="col-sm-3 pb-3">
+								<label>Vehicle</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fas fa-truck-moving"></i></div>
+                                    {{ form.vehicles_fri }}
+                                </div>
+							</div>
+
+							<!-- Address: -->
+							<div class="col-sm-3 pb-3">
+								<label>Job Address</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+								    {{ form.job_address_fri }}
+                                </div>
+							</div>
+
+							<!-- job Desc: -->
+							<div class="col-sm-6 pb-3">
+								<label>Job Description</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+                                    {{ form.job_description_fri }}
+                                </div>
+							</div>
+
+                            <!-- HR -->
+                            <div class='col-sm-12 pb-3'>
+                                <hr>
+                            </div>
+
+        <!-- SAT : -->
+
+                            <!-- date_sat: -->
+							<div class="col-sm-3 pb-3">
+                                <label><b><u>Saturday</u></b></label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-calendar-alt"></i></div>
+                                    {{ form.date_sat }}
+                                </div>
+							</div>
+
+                            <!-- Time In: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time In</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_in_sat }}
+                                </div>
+							</div>
+
+                            <!-- Break / Lunch?: -->
+							<div class="col-sm-2 pb-3">
+								<label>Lunch?</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="fas fa-utensils"></i></div>
+							            {{ form.lunch_sat }}
+                                </div>
+                            </div>
+
+							<!-- Time out: -->
+							<div class="col-sm-3 pb-3">
+								<label>Time Out</label>
+                                <div class="input-group">
+									<div class="input-group-addon"><i class="far fa-clock"></i></div>
+                                    {{ form.time_out_sat }}
+                                </div>
+							</div>
+
+                            <!-- Hours in a day: -->
+                            <div class="col-sm-1 pb-3">
+								<label>Hours:</label>
+                                {{ form.hours_sat }}
+							</div>
+
+							<!-- vehicles: -->
+							<div class="col-sm-3 pb-3">
+								<label>Vehicle</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="fas fa-truck-moving"></i></div>
+                                    {{ form.vehicles_sat }}
+                                </div>
+							</div>
+
+							<!-- Address: -->
+							<div class="col-sm-3 pb-3">
+								<label>Job Address</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+								    {{ form.job_address_sat }}
+                                </div>
+							</div>
+
+							<!-- job Desc: -->
+							<div class="col-sm-6 pb-3">
+								<label>Job Description</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="far fa-building"></i></div>
+                                    {{ form.job_description_sat }}
+                                </div>
+							</div>
+
+                            <!-- HR -->
+                            <div class='col-sm-12 pb-3'>
+                                <hr>
+                            </div>
+
+
+                            <!-- Buttons Cancel and Add: -->
+                            <div class='col-sm-12 pb-3'>
+                                <a href="" class="btn btn-outline-dark">Cancel</a>
+                                <button type="submit" class="save btn btn-primary">Save Time Sheet</button>
+                            </div>
+
+
+
+                </div>
+            </div>

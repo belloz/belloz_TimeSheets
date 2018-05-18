@@ -1,0 +1,370 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>TEST</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/starter-template/starter-template.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="{% url 'timesheet_app:index' %}">NAV</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{% url 'timesheet_app:index' %}" data-toggle="tooltip" data-placement="bottom" title="Home"><i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'timesheet_app:add_form' %}" data-toggle="tooltip" data-placement="bottom" title="Time Sheets"><i class="fas fa-clock"></i> <span class="sr-only">(current)</span></a>
+          </li>
+
+          {% if not user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="">My TimeSheets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+          </li>
+          {% endif %}
+
+        </ul>
+
+      </div>
+    </nav>
+
+    <main role="main" class="container">
+
+      <div class="starter-template">
+      {% block body %}
+        <h1>Bootstrap starter template</h1>
+        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      {% endblock %}
+      </div>
+
+    </main><!-- /.container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+    <!-- summing total hours -->
+    <script>
+    $(function(){
+
+    // MONDAY:
+        // convert total time to hours - MONDAY:
+        function calculate(){
+            var A = $('#time_in_mon').val().split(':');
+            var B = $('#time_out_mon').val().split(':');
+            var hours1 = parseInt(A[0], 10);
+            var hours2 = parseInt(B[0], 10);
+            var mins1 = parseInt(A[1], 10);
+            var mins2 = parseInt(B[1], 10);
+            var hours = hours2 - hours1;
+            var mins = 0;
+            var lunch = $('#lunch_mon').val(); // lunch value, if True -0.50 (means -30 min) to hour
+            // console.log(lunch); // make sure val is correct
+
+            if(hours < 0) hours = 24 + hours;
+            if(mins2 >= mins1) {
+                mins = mins2 - mins1;
+            }
+            else {
+                mins = (mins2 + 60) - mins1;
+                hours--;
+            }
+            mins = mins / 60; // take percentage in 60
+            hours += mins;
+            hours = hours.toFixed(2);
+            if (lunch == "Yes"){
+                $("#C").val(hours - 0.50); // -0.30 h
+            }else{
+                $("#C").val(hours);
+            }
+        };
+
+
+        // display total hours -- MONDAY:
+        $('#time_in_mon, #time_out_mon, #lunch_mon').on('input', function(e){
+            $('#C').change(calculate);
+            calculate();
+        });
+
+
+
+// TUESDAY:
+        // convert total time to hours - TUESDAY:
+        function calculateTue(){
+            var A = $('#time_in_tue').val().split(':');
+            var B = $('#time_out_tue').val().split(':');
+            var hours1 = parseInt(A[0], 10);
+            var hours2 = parseInt(B[0], 10);
+            var mins1 = parseInt(A[1], 10);
+            var mins2 = parseInt(B[1], 10);
+            var hours = hours2 - hours1;
+            var mins = 0;
+            var lunch = $('#lunch_tue').val(); // lunch value, if True -0.50 (means -30 min) to hour
+            // console.log(lunch); // make sure val is correct
+
+            if(hours < 0) hours = 24 + hours;
+            if(mins2 >= mins1) {
+                mins = mins2 - mins1;
+            }
+            else {
+                mins = (mins2 + 60) - mins1;
+                hours--;
+            }
+            mins = mins / 60; // take percentage in 60
+            hours += mins;
+            hours = hours.toFixed(2);
+            if (lunch == "Yes"){
+                $("#hours_tue").val(hours - 0.50); // -0.30 h
+            }else{
+                $("#hours_tue").val(hours);
+            }
+        };
+
+
+        // display total hours -- TUESDAY:
+        $('#time_in_tue, #time_out_tue, #lunch_tue').on('input', function(e){
+            $('#hours_tue').change(calculateTue);
+            calculateTue();
+        });
+
+
+
+// WEDNESDAY:
+        // convert total time to hours - WEDNESDAY:
+        function calculateWed(){
+            var A = $('#time_in_wed').val().split(':');
+            var B = $('#time_out_wed').val().split(':');
+            var hours1 = parseInt(A[0], 10);
+            var hours2 = parseInt(B[0], 10);
+            var mins1 = parseInt(A[1], 10);
+            var mins2 = parseInt(B[1], 10);
+            var hours = hours2 - hours1;
+            var mins = 0;
+            var lunch = $('#lunch_wed').val(); // lunch value, if True -0.50 (means -30 min) to hour
+            // console.log(lunch); // make sure val is correct
+
+            if(hours < 0) hours = 24 + hours;
+            if(mins2 >= mins1) {
+                mins = mins2 - mins1;
+            }
+            else {
+                mins = (mins2 + 60) - mins1;
+                hours--;
+            }
+            mins = mins / 60; // take percentage in 60
+            hours += mins;
+            hours = hours.toFixed(2);
+            if (lunch == "Yes"){
+                $("#hours_wed").val(hours - 0.50); // -0.30 h
+            }else{
+                $("#hours_wed").val(hours);
+            }
+        };
+
+
+        // display total hours -- WED:
+        $('#time_in_wed, #time_out_wed, #lunch_wed').on('input', function(e){
+            $('#hours_wed').change(calculateWed);
+            calculateWed();
+        });
+
+// THU:
+        // convert total time to hours :
+        function calculateThu(){
+            var A = $('#time_in_thu').val().split(':');
+            var B = $('#time_out_thu').val().split(':');
+            var hours1 = parseInt(A[0], 10);
+            var hours2 = parseInt(B[0], 10);
+            var mins1 = parseInt(A[1], 10);
+            var mins2 = parseInt(B[1], 10);
+            var hours = hours2 - hours1;
+            var mins = 0;
+            var lunch = $('#lunch_thu').val(); // lunch value, if True -0.50 (means -30 min) to hour
+            // console.log(lunch); // make sure val is correct
+
+            if(hours < 0) hours = 24 + hours;
+            if(mins2 >= mins1) {
+                mins = mins2 - mins1;
+            }
+            else {
+                mins = (mins2 + 60) - mins1;
+                hours--;
+            }
+            mins = mins / 60; // take percentage in 60
+            hours += mins;
+            hours = hours.toFixed(2);
+            if (lunch == "Yes"){
+                $("#hours_thu").val(hours - 0.50); // -0.30 h
+            }else{
+                $("#hours_thu").val(hours);
+            }
+        };
+
+
+        // display total hours:
+        $('#time_in_thu, #time_out_thu, #lunch_thu').on('input', function(e){
+            $('#hours_thu').change(calculateThu);
+            calculateThu();
+        });
+
+// FRI:
+        // convert total time to hours :
+        function calculateFri(){
+            var A = $('#time_in_fri').val().split(':');
+            var B = $('#time_out_fri').val().split(':');
+            var hours1 = parseInt(A[0], 10);
+            var hours2 = parseInt(B[0], 10);
+            var mins1 = parseInt(A[1], 10);
+            var mins2 = parseInt(B[1], 10);
+            var hours = hours2 - hours1;
+            var mins = 0;
+            var lunch = $('#lunch_fri').val(); // lunch value, if True -0.50 (means -30 min) to hour
+            // console.log(lunch); // make sure val is correct
+
+            if(hours < 0) hours = 24 + hours;
+            if(mins2 >= mins1) {
+                mins = mins2 - mins1;
+            }
+            else {
+                mins = (mins2 + 60) - mins1;
+                hours--;
+            }
+            mins = mins / 60; // take percentage in 60
+            hours += mins;
+            hours = hours.toFixed(2);
+            if (lunch == "Yes"){
+                $("#hours_fri").val(hours - 0.50); // -0.30 h
+            }else{
+                $("#hours_fri").val(hours);
+            }
+        };
+
+
+        // display total hours:
+        $('#time_in_fri, #time_out_fri, #lunch_fri').on('input', function(e){
+            $('#hours_fri').change(calculateFri);
+            calculateFri();
+        });
+
+
+// SAT:
+        // convert total time to hours :
+        function calculateSat(){
+            var A = $('#time_in_sat').val().split(':');
+            var B = $('#time_out_sat').val().split(':');
+            var hours1 = parseInt(A[0], 10);
+            var hours2 = parseInt(B[0], 10);
+            var mins1 = parseInt(A[1], 10);
+            var mins2 = parseInt(B[1], 10);
+            var hours = hours2 - hours1;
+            var mins = 0;
+            var lunch = $('#lunch_sat').val(); // lunch value, if True -0.50 (means -30 min) to hour
+            // console.log(lunch); // make sure val is correct
+
+            if(hours < 0) hours = 24 + hours;
+            if(mins2 >= mins1) {
+                mins = mins2 - mins1;
+            }
+            else {
+                mins = (mins2 + 60) - mins1;
+                hours--;
+            }
+            mins = mins / 60; // take percentage in 60
+            hours += mins;
+            hours = hours.toFixed(2);
+            if (lunch == "Yes"){
+                $("#hours_sat").val(hours - 0.50); // -0.30 h
+            }else{
+                $("#hours_sat").val(hours);
+            }
+        };
+
+
+        // display total hours:
+        $('#time_in_sat, #time_out_sat, #lunch_sat').on('input', function(e){
+            $('#hours_sat').change(calculateSat);
+            calculateSat();
+        });
+
+
+        // TOTAL WEEK HOURS:
+        $(document).change("#C, #hours_tue, #hours_wed, #hours_thu, #hours_fri, #hours_sat", function() {
+            var sum = 0;
+            $("#C").each(function(){
+                sum += +$(this).val();
+            });
+            $("#hours_tue").each(function(){
+                sum += +$(this).val();
+            });
+            $("#hours_wed").each(function(){
+                sum += +$(this).val();
+            });
+            $("#hours_thu").each(function(){
+                sum += +$(this).val();
+            });
+            $("#hours_fri").each(function(){
+                sum += +$(this).val();
+            });
+            $("#hours_sat").each(function(){
+                sum += +$(this).val();
+            });
+
+
+            $("#total_week_hours").val(sum);
+        });
+
+
+    });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+            $('[data-toggle="tooltip"]').tooltip();
+
+        });
+    </script>
+
+    <script>
+        function printPage() {
+            window.print();
+        }
+    </script>
+
+  </body>
+</html>
+
+
